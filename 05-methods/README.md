@@ -79,11 +79,13 @@ void ht_delete(ht_hash_table* ht, const char* key) {
     int index = ht_hash(key, ht->size, 0);
     ht_item* item = ht->items[index];
     int i = 1;
-    while (item != NULL && item != &HT_DELETED_ITEM) {
-        if (strcmp(item->key, key) == 0) {
-            ht_del_item(item);
-            ht->items[index] = &HT_DELETED_ITEM;
-        }
+    while (item != NULL) {
+	if(item!=&HT_DELETED_ITEM) {
+        	if (strcmp(item->key, key) == 0) {
+            	ht_del_item(item);
+            	ht->items[index] = &HT_DELETED_ITEM;
+        	}
+	}
         index = ht_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
@@ -113,7 +115,12 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 
 char* ht_search(ht_hash_table* ht, const char* key) {
     // ...
-    while (item != NULL && item != &HT_DELETED_ITEM) {
+    while (item != NULL) {
+        if(item!=&HT_DELETED_ITEM) { 
+	    if (strcmp(item->key, key) == 0) {
+            	return item->value;
+            }
+	}
         // ...
     }
     // ...
@@ -134,12 +141,14 @@ the new item at its location.
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     // ...
-    while (cur_item != NULL && cur_item != &HT_DELETED_ITEM) {
-        if (strcmp(cur_item->key, key) == 0) {
-            ht_del_item(cur_item);
-            ht->items[index] = item;
-            return;
-        }
+    while (cur_item != NULL) {
+        if(cur_item!=&HT_DELETED_ITEM) {
+            if (strcmp(cur_item->key, key) == 0) {
+                ht_del_item(cur_item);
+                ht->items[index] = item;
+                return;
+            }
+	}
         // ...
     } 
     // ...
