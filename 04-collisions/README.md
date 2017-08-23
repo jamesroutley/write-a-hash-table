@@ -46,5 +46,5 @@ static int ht_get_hash(
 }
 ```
 
-Next section: [Hash table methods](/methods)
+Next section: [Hash table methods](/05-methods)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
