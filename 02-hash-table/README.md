@@ -4,7 +4,7 @@ Our key-value pairs (items) will each be stored in a `struct`:
 
 ```c
 // hash_table.h
-typedef struct ht_item {
+typedef struct {
     char* key;
     char* value;
 } ht_item;
