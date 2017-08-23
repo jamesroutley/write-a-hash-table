@@ -100,5 +100,5 @@ int main() {
 }
 ```
 
-Next section: [Hash functions](/hashing)
+Next section: [Hash functions](/03-hashing)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)

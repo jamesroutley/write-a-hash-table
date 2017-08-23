@@ -187,5 +187,5 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 }
 ```
 
-Next section: [Appendix](/appendix)
+Next section: [Appendix](/07-appendix)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)

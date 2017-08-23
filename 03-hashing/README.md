@@ -89,5 +89,5 @@ much longer (`O(n)`) than normal (`O(1)`). This can be used as a denial of
 service attack against systems which are underpinned by hash tables, such as DNS
 and certain web services.
 
-Next section: [Handling collisions](/collisions)
+Next section: [Handling collisions](/04-collisions)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)

@@ -72,5 +72,5 @@ an array, and iterating through the array when searching. Associative arrays and
 hash tables are often confused because associative arrays are so often
 implemented as hash tables.
 
-Next section: [Hash table structure](/hash-table)
+Next section: [Hash table structure](/02-hash-table)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
