@@ -146,5 +146,5 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 }
 ```
 
-Next section: [Resizing tables](/resizing)
+Next section: [Resizing tables](/06-resizing)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
