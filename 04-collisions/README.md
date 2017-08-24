@@ -30,7 +30,7 @@ and over. We can mitigate this by adding 1 to the result of the second hash,
 making sure it's never 0.
 
 ```
-index = hash_a(string) + i * (hash_b(string) + 1) % num_buckets
+index = (hash_a(string) + i * (hash_b(string) + 1)) % num_buckets
 ```
 
 ## Implementation
