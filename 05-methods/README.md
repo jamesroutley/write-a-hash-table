@@ -14,18 +14,18 @@ void ht_delete(ht_hash_table* h, const char* key);
 To insert a new key-value pair, we iterate through indexes until we find an
 empty bucket. We then insert the item into that bucket and increment the hash
 table's `count` attribute, to indicate a new item has been added. A hash table's
-`count` attribute will become useful when we look at [resizing](/resizing) in
+`count` attribute will become useful when we look at [resizing](/06-resizing) in
 the next section.
 
 ```c
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     ht_item* item = ht_new_item(key, value);
-    int index = ht_hash(item->key, ht->size, 0);
+    int index = ht_get_hash(item->key, ht->size, 0);
     ht_item* cur_item = ht->items[index];
     int i = 1;
     while (cur_item != NULL) {
-        index = ht_hash(item->key, ht->size, i);
+        index = ht_get_hash(item->key, ht->size, i);
         cur_item = ht->items[index];
         i++;
     } 
@@ -44,14 +44,14 @@ we return the item's value. If the while loop hits a `NULL` bucket, we return
 ```c
 // hash_table.c
 char* ht_search(ht_hash_table* ht, const char* key) {
-    int index = ht_hash(key, ht->size, 0);
+    int index = ht_get_hash(key, ht->size, 0);
     ht_item* item = ht->items[index];
     int i = 1;
     while (item != NULL) {
         if (strcmp(item->key, key) == 0) {
             return item->value;
         }
-        index = ht_hash(key, ht->size, i);
+        index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
     } 
@@ -76,17 +76,17 @@ static ht_item HT_DELETED_ITEM = {NULL, NULL};
 
 
 void ht_delete(ht_hash_table* ht, const char* key) {
-    int index = ht_hash(key, ht->size, 0);
+    int index = ht_get_hash(key, ht->size, 0);
     ht_item* item = ht->items[index];
     int i = 1;
     while (item != NULL) {
-	if(item!=&HT_DELETED_ITEM) {
-        	if (strcmp(item->key, key) == 0) {
-            	ht_del_item(item);
-            	ht->items[index] = &HT_DELETED_ITEM;
-        	}
-	}
-        index = ht_hash(key, ht->size, i);
+        if(item!=&HT_DELETED_ITEM) {
+            if (strcmp(item->key, key) == 0) {
+                ht_del_item(item);
+                ht->items[index] = &HT_DELETED_ITEM;
+            }
+        }
+        index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
     } 
@@ -117,10 +117,10 @@ char* ht_search(ht_hash_table* ht, const char* key) {
     // ...
     while (item != NULL) {
         if(item!=&HT_DELETED_ITEM) { 
-	    if (strcmp(item->key, key) == 0) {
-            	return item->value;
+            if (strcmp(item->key, key) == 0) {
+                return item->value;
             }
-	}
+        }
         // ...
     }
     // ...
@@ -148,7 +148,7 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
                 ht->items[index] = item;
                 return;
             }
-	}
+        }
         // ...
     } 
     // ...
