@@ -46,7 +46,7 @@ static ht_item* ht_new_item(const char* k, const char* v) {
 
 `ht_new` initialises a new hash table. `size` defines how many items we can
 store. This is fixed at 53 for now. We'll expand this in the section on
-[resizing](/resizing). We initialise the array of items with `calloc`, which
+[resizing](/06-resizing). We initialise the array of items with `calloc`, which
 fills the allocated memory with `NULL` bytes. A `NULL` entry in the array
 indicates that the bucket is empty.
 

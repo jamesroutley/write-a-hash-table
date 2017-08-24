@@ -14,7 +14,7 @@ void ht_delete(ht_hash_table* h, const char* key);
 To insert a new key-value pair, we iterate through indexes until we find an
 empty bucket. We then insert the item into that bucket and increment the hash
 table's `count` attribute, to indicate a new item has been added. A hash table's
-`count` attribute will become useful when we look at [resizing](/resizing) in
+`count` attribute will become useful when we look at [resizing](/06-resizing) in
 the next section.
 
 ```c
