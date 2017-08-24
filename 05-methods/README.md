@@ -2,7 +2,7 @@
 
 Our hash function will implement the following API:
 
-```
+```c
 // hash_table.h
 void ht_insert(ht_hash_table* ht, const char* key, const char* value);
 char* ht_search(ht_hash_table* ht, const char* key);
@@ -103,7 +103,6 @@ hit a deleted node, we can insert the new node into the deleted slot.
 
 ```c
 // hash_table.c
-
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     // ...
     while (cur_item != NULL && cur_item != &HT_DELETED_ITEM) {
