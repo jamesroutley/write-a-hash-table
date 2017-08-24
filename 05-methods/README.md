@@ -91,13 +91,13 @@ void ht_delete(ht_hash_table* ht, const char* key) {
     ht->count--;
 }
 ```
+After deleting, we decrement the hash table's `count` attribute.
 
 We also need to modify `ht_insert` and `ht_search` functions to take account of
 deleted nodes.
 
 When searching, we ignore and 'jump over' deleted nodes. When inserting, if we
-hit a deleted node, we can insert the new node into the deleted slot. After
-deleting, we decrement the hash table's `count` attribute.
+hit a deleted node, we can insert the new node into the deleted slot.
 
 ```c
 // hash_table.c

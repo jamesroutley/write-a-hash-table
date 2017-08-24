@@ -21,7 +21,7 @@ function hash(string, a, num_buckets):
     hash = 0
     string_len = length(string)
     for i = 0, 1, ..., string_len:
-        hash += (a ** string_len - (i+1)) * char_code(string[i])
+        hash += (a ** (string_len - (i+1))) * char_code(string[i])
     hash = hash % num_buckets
     return hash
 ```
