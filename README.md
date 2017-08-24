@@ -38,5 +38,5 @@ hour or two to work through.
 
 ## Credits
 
-This tutorial was written by [@jamesroutley](https://github.com/jamesroutley),
+This tutorial was written by [James Routley](https://twitter.com/james_routley),
 who blogs at [routley.io](https://routley.io).
