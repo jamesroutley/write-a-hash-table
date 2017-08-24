@@ -114,7 +114,7 @@ with the desired size. All non `NULL` or deleted items are inserted into the new
 hash table. We then swap the attributes of the new and old hash tables before
 deleting the old.
 
-```
+```c
 // hash_table.c
 static void ht_resize(ht_hash_table* ht, const int base_size) {
     if (base_size < HT_INITIAL_BASE_SIZE) {
