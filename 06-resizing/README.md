@@ -21,11 +21,12 @@ We will resize:
 To resize, we create a new hash table roughly half or twice as big as the
 current, and insert all non-deleted items into it.
 
-Our new array size should be a prime number roughly double the current size.
-Finding the new array size isn't trivial. To do so, we store a base size, which
-we want the array to be, and then define the actual size as the first prime
-larger than the base size. To resize up, we double the base size, and find the
-first larger prime.
+Our new array size should be a prime number roughly double or half the current
+size.  Finding the new array size isn't trivial. To do so, we store a base
+size, which we want the array to be, and then define the actual size as the
+first prime larger than the base size. To resize up, we double the base size,
+and find the first larger prime, and to resize down, we halve the size and
+find the next larger prime.
 
 Our base sizes start at 50. Instead of storing
 
