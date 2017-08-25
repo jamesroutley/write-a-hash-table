@@ -1,6 +1,6 @@
 # Write a hash table in C
 
-Hash tables are one of the most useful data structures. Their quick and scalable
+[Hash tables](https://en.wikipedia.org/wiki/Hash_table) are one of the most useful data structures. Their quick and scalable
 insert, search and delete make them relevant to a large number of computer
 science problems.
 
