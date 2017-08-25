@@ -140,6 +140,7 @@ the new item at its location.
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     // ...
+    int del_index = -1;
     while (cur_item != NULL) {
         if (cur_item != &HT_DELETED_ITEM) {
             if (strcmp(cur_item->key, key) == 0) {
@@ -147,10 +148,19 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
                 ht->items[index] = item;
                 return;
             }
+        } else if (del_index == -1) {
+            del_index = index;
         }
-        // ...
+        index = ht_get_hash(item->key, ht->size, i);
+        cur_item = ht->items[index];
+        i++;
     } 
-    // ...
+    if (del_index != -1) {
+        ht->items[del_index] = item;
+    } else {
+        ht->items[index] = item;
+    }
+    ht->count++;
 }
 ```
 
