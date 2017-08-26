@@ -1,10 +1,10 @@
 # Write a hash table in C
 
-Hash tables are one of the most useful data structures. Their quick and scalable
+[Hash tables](https://en.wikipedia.org/wiki/Hash_table) are one of the most useful data structures. Their quick and scalable
 insert, search and delete make them relevant to a large number of computer
 science problems.
 
-In this tutorial, we implement an open-addressed, double-hashed hash table in
+In this tutorial, we implement an [open-addressed](https://en.wikipedia.org/wiki/Open_addressing), [double-hashed](https://en.wikipedia.org/wiki/Double_hashing) hash table in
 C. By working through this tutorial, you will gain:
 
 - Understanding of how a fundamental data structure works under the hood
