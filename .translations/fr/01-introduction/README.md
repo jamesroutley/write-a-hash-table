@@ -4,12 +4,12 @@ Une table de hachage est une structure de données qui offre implémentation rap
 
 Comme la terminologie autour des tables de hachage peut être source de confusion, j'ai ajouté des définitions [ci-dessous](#Terminologie).
 
-Une table de hachage consiste en un tableau de 'buckets' qui stockent chacun une paire de clef-valeur.
-Pour localiser ou stocker une paire dans le 'bucket', la clef est transformé par une fonction de hachage.
+Une table de hachage consiste en un tableau d'élement qui stockent chacun une paire de clef-valeur.
+Pour localiser ou stocker une paire, la clef est transformé par une fonction de hachage.
 
-Cette fonction renvoie un entier qui est utilisé comme index dans le tableau de 'bucket'.
+Cette fonction renvoie un entier qui est utilisé comme index dans le tableau.
 
-Pour récupérer une paire de clef-valeur, il faut fournir la clé à la même fonction de hachage et utiliser la valeur renvoyé comme index dans le tableau de 'bucket'.
+Pour récupérer une paire de clef-valeur, il faut fournir la clé à la même fonction de hachage et utiliser la valeur renvoyé comme index dans le tableau.
 
 L'indexation de tableaux a une complexité algorithmique `O(1)`, rendant les tables de hachage rapide à stocker et récupérer des données.
 
@@ -47,7 +47,7 @@ L'arborescence du code sera la suivante :
 
 `src` contiendra le code, `build` contiendra nos binaires compilés.
 
-## Terminology
+## Terminologies
 
 Dans cet article, nous suivrons la terminologie suivante :
 
@@ -62,6 +62,6 @@ Une implémentation (non performante) peut être réalisé en stockant simplemen
 
 La plupart du temps les tableaux associatifs sont implémenté comme table de hachage ce qui entraine des confusions.
 
-Next section: [Structure d'une table de hachage](/02-hash-table)
+Next section: [Structure d'une table de hachage](../02-hash-table)
 
-[Table des matières](.translations/fr/README.md#contents)
+[Table des matières](/.translations/fr/README.md#contents)
