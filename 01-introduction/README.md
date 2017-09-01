@@ -32,7 +32,7 @@ are not permitted. The following operations are supported:
 
 ## Setup
 
-To set up C on your computer, please consult [Daniel Holden's](@orangeduck)
+To set up C on your computer, please consult [Daniel Holden's](/orangeduck)
 guide in the [Build Your Own
 Lisp](http://www.buildyourownlisp.com/chapter2_installation) book.  Build Your
 Own Lisp is a great book, and I recommend working through it.
