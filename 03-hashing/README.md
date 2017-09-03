@@ -1,6 +1,6 @@
 # Hash function
 
-In this section, we'll write our hash function. 
+In this section, we'll write our hash function.
 
 The hash function we choose should:
 
@@ -9,7 +9,7 @@ The hash function we choose should:
 - Return an even distribution of bucket indexes for an average set of inputs. If
   our hash function is unevenly distributed, it will put more items in some
   buckets than others. This will lead to a higher rate of
-  [collisions](#collisions). Collisions reduce the efficiency of our hash table.
+  [collisions](#Pathological data). Collisions reduce the efficiency of our hash table.
 
 ## Algorithm
 
@@ -34,7 +34,7 @@ This hash function has two steps:
 
 The variable `a` should be a prime number larger than the size of the alphabet.
 We're hashing ASCII strings, which has an alphabet size of 128, so we should
-choose a prime larger than that. 
+choose a prime larger than that.
 
 `char_code` is a function which returns an integer which represents the
 character. We'll use ASCII character codes for this.
