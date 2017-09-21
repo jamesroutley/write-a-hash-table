@@ -28,9 +28,9 @@ L'implémentation complète fait autour de 200 lignes de code et suivre le tutor
 2. [Structure d'une table de hachage](./02-hash-table)
 3. [Fonction de hachage](./03-hashing)
 4. [Gestion des collisions](./04-collisions)
-5. [Méthodes d'une table de Hachage](./05-methods)
-6. [Redimensionnement de la table de Hashage](./06-resizing)
-7. [Appendix: Gestion de collisions alternative](./07-appendix)
+5. [Méthodes de la table de Hachage](./05-methods)
+6. [Redimensionnement](./06-resizing)
+7. [Annexe : Gestion de collisions alternative](./07-appendix)
 
 ## Credits
 
