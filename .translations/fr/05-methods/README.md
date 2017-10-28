@@ -11,9 +11,9 @@ void ht_delete(ht_hash_table* h, const char* key);
 
 ## Insertion
 
-Pour insérer une nouvelle paire clé-valeur, nous calculons le hash associé à la clef. Si l'indice est déja utilisé dans le tableau, on itère jusqu'a ce que l'on trouve un emplacement disponible.
+Pour insérer une nouvelle paire clé-valeur, nous calculons l'index associé à la clef. Si l'index est déja utilisé dans le tableau, on itère jusqu'à ce que l'on trouve un emplacement disponible.
 
-L'attribut `count` sera utile lorsque nous regarderons [Redimensionnement](../06-resizing) dans la section suivante.
+L'attribut `count` sera utile lorsque nous regarderons le [redimensionnement](../06-resizing) dans la section suivante.
 
 ```c
 // hash_table.c
@@ -34,7 +34,9 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 
 ## Search
 
-La recherche est similaire à l'insertion, mais à chaque itération de la boucle `while`, nous vérifions si la clef de l'élément correspond à la clef que nous recherchons. Si c'est le cas, nous renvoyons la valeur de l'objet. Si la boucle while rencontre une valeur «NULL», nous renvoyons «NULL», pour indiquer qu'aucune valeur n'a été trouvée.
+La recherche est similaire à l'insertion, mais à chaque itération de la boucle `while`, nous vérifions si la clef de l'élément correspond à la clef que nous recherchons.
+
+Si c'est le cas, nous renvoyons la valeur de l'objet. Si la boucle while rencontre une valeur «NULL», nous renvoyons «NULL», pour indiquer qu'aucune valeur n'a été trouvée.
 
 ```c
 // hash_table.c
@@ -58,7 +60,7 @@ char* ht_search(ht_hash_table* ht, const char* key) {
 
 La suppression est plus compliquée que l'insertion ou la recherche. L'élément que nous souhaitons supprimer peut faire partie d'une chaîne de collision. L'enlever de la table va rompre cette chaîne et rendra impossible la recherche d'éléments. Pour résoudre ce problème, au lieu de supprimer l'élément, on le marque simplement comme supprimé.
 
-Nous marquons un élément supprimé en le remplaçant par un pointeur vers un élément global qui représente un élément supprimé.
+Nous marquons un élément comme supprimé en le remplaçant par un pointeur vers un élément global qui représente un élément supprimé.
 
 ```c
 // hash_table.c
@@ -84,17 +86,11 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 }
 ```
 
-After deleting, we decrement the hash table's `count` attribute.
-
-We also need to modify `ht_insert` and `ht_search` functions to take account of deleted nodes.
-
-When searching, we ignore and 'jump over' deleted nodes. When inserting, if we hit a deleted node, we can insert the new node into the deleted slot.
-
-Après la suppression, nous décrémentons l'attribut `count` de la table de hashage.
+Après la suppression, nous décrémentons l'attribut `count` de la table de hachage.
 
 Nous devons également modifier les fonctions `ht_insert` et `ht_search` pour prendre en compte les nœuds supprimés.
 
-Lors de la recherche, nous ignorons et «sautons» des nœuds supprimés. Lors de l'insertion, si nous atteignons un noeud supprimé, nous pouvons insérer le nouveau nœud dans l'emplacement supprimé.
+Lors de la recherche, nous ignorons et «sautons» les nœuds supprimés. Lors de l'insertion, si nous atteignons un noeud supprimé, nous pouvons insérer le nouveau nœud dans l'emplacement supprimé.
 
 
 ```c
@@ -124,13 +120,9 @@ char* ht_search(ht_hash_table* ht, const char* key) {
 
 ## Mise à jour
 
-Our hash table doesn't currently support updating a key's value. If we insert two items with the same key, the keys will collide, and the second item will be inserted into the next available bucket. When searching for the key, the original key will always be found, and we are unable to access the second item.
+Notre table de hachage ne supporte actuellement pas la mise à jour de la valeur d'une clé. Si nous insérons deux éléments avec la même clé, les clés entreront en collision et le deuxième élément sera inséré dans le prochain indice disponible. Lorsque l'on recherchera la clé, la clé d'origine sera toujours trouvée, et nous ne pourrons pas accéder au deuxième élément.
 
-We can fix this my modifying `ht_insert` to delete the previous item and insert the new item at its location.
-
-Notre table de hachage ne supporte actuellement pas la mise à jour de la valeur d'une clé. Si nous insérons deux éléments avec la même clé, les clés entreront en collision et le deuxième élément sera inséré dans le prochain indice disponible. Lorsque vous recherchez la clé, la clé d'origine sera toujours trouvée, et nous ne pouvons pas accéder au deuxième élément.
-
-Nous pouvons modifier `ht_insert` pour supprimer l'élément précédent et insérer le nouvel élément à son emplacement.
+Nous pouvons corriger celà en modifiant `ht_insert` pour faire en sorte de supprimer l'élément précédent et insérer le nouvel élément à son emplacement.
 
 ```c
 // hash_table.c
@@ -150,6 +142,6 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 }
 ```
 
-Prochaine section: [Redimensionnement de la table de Hashage](../05-resizing)
+Prochaine section: [Redimensionnement de la table de Hachage](../05-resizing)
 
 [Table des matières](/.translations/fr/README.md#contents)

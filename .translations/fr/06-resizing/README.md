@@ -1,25 +1,25 @@
-# Redimensionnement de la table de Hashage
+# Redimensionnement de la table de Hachage
 
-Pour le moment, notre table de hachage à une taille fixe. Plus on insere d'element, plus la table se remplit et cela implique les problèmes suivants :
+Pour le moment, notre table de hachage a une taille fixe. Plus on insère d'éléments, plus la table se remplit et cela génère les problèmes suivants :
 
 1. La performance de la table de hachage diminue avec des taux élevés de collisions
-2. La table ne peut que stocker un nombre fixe d'element. Si nous essayons de stocker plus que cela, la fonction d'insertion échouera.
+2. La table ne peut que stocker un nombre fixe d'éléments. Si nous essayons de stocker plus que cela, la fonction d'insertion échouera.
 
-Pour pallier cela, nous pouvons augmenter la taille du tableau de l'article quand il est trop plein. Nous enregistrons le nombre d'éléments stockés dans la table de hachage dans l'attribut `de count` de la table. Sur chaque insertion et suppression, nous calculons la «charge» du tableau (nombre d'elements/nombre total d'élements). Si ce ratio est supérieure ou inférieure à certaines valeurs, nous redimensionnons le tableau :
+Pour pallier à cela, nous pouvons augmenter la taille du tableau de l'article quand il est trop rempli. Nous enregistrons le nombre d'éléments stockés dans la table de hachage grace à l'attribut `count` de la table. Sur chaque insertion et suppression, nous calculons la «charge» du tableau (nombre d'éléments/nombre total d'éléments). Si ce ratio est supérieur ou inférieur à certaines valeurs, nous redimensionnons le tableau :
 
 - Si le ratio est > 0.7, on l'agrandit
 - Si le ratio est < 0.1, on le diminue
 
-Pour redimensionner, nous créons une nouvelle table de hachage ou l'on insert tous les éléments non supprimés.
+Pour redimensionner, nous créons une nouvelle table de hachage ou l'on insère tous les éléments non supprimés.
 
-Notre nouvelle taille doit être un nombre premier correspondant à peu près à deux fois (aggrandissement) ou à moitié la taille actuelle (reduction).
-Trouver la nouvelle taille de tableau n'est pas trivial.  Pour ce faire nous :
+Notre nouvelle taille doit être un nombre premier correspondant à peu près à deux fois (aggrandissement) ou à la moitié de la taille actuelle (réduction).
+Trouver la nouvelle taille de tableau n'est pas trivial. Pour ce faire nous :
     * Stockons une taille de base (commencons par 50)
     * Définissons la taille réelle comme le premier nombre premier plus grand que la taille de base.
     * Doublons la taille de base et trouvons le premier nombre premier plus grand (pour redimensionner vers le bas, on réduit la taille de moitié et trouvons le premier plus grand)
 
 
-Il faut maintenant une methode pour trouver le le prochaine nombre premier suivant un nombre donnée en parametre. Nous utiliserons la force brute en verifiant un par un tous les nombre qui le suivent.
+Il faut maintenant une méthode pour trouver le prochain nombre premier suivant un nombre donné en paramètre. Nous utiliserons la force brute en vérifiant un par un tous les nombres qui le suivent.
 
 Nous implementons cela dans deux nouveaux fichiers, `prime.h` et `prime.c`.
 
@@ -70,7 +70,7 @@ int next_prime(int x) {
 }
 ```
 
-Nous devons ensuite mettre à jour notre fonction `ht_new` pour pouvoir créer une tables de hashage d'une taille donnée. Pour cela, nous allons créer une nouvelle fonction, `ht_new_sized`.
+Nous devons ensuite mettre à jour notre fonction `ht_new` pour pouvoir créer une table de hachage d'une taille donnée. Pour cela, nous allons créer une nouvelle fonction, `ht_new_sized`.
 La fonction `ht_new` ne sera plus qu'un appel à `ht_new_sized` avec une taille de départ fixe.
 
 ```c
@@ -92,16 +92,12 @@ ht_hash_table* ht_new() {
 }
 ```
 
-Now we have all the parts we need to write our resize function.
-
-In our resize function, we check to make sure we're not attempting to reduce the size of the hash table below its minimum. We then initialise a new hash table with the desired size. All non `NULL` or deleted items are inserted into the new hash table. We then swap the attributes of the new and old hash tables before deleting the old.
-
 On a maintenant toutes les parties dont nous avons besoin pour écrire notre fonction de redimensionnement :
 
-1. Celle-ci doit verifier que nous n'essayons pas de réduire la taille de la table de hachage en dessous de son minimum.
+1. Celle-ci doit vérifier que nous n'essayons pas de réduire la taille de la table de hachage en dessous de son minimum.
 2. Nous initialisons ensuite une nouvelle table de hachage avec la taille souhaitée.
-3. Tous les éléments non `NULL` ou supprimés sont insérés dans la nouvelle table de hachage.
-4. Nous mettons à jours les attributs de la nouvelle table de hashage avec les valeurs de l'ancienne.
+3. Tous les éléments non `NULL` et non supprimés sont insérés dans la nouvelle table de hachage.
+4. Nous mettons à jour les attributs de la nouvelle table de hachage avec les valeurs de l'ancienne table avant de la détruire.
 
 ```c
 // hash_table.c
@@ -149,9 +145,9 @@ static void ht_resize_down(ht_hash_table* ht) {
 }
 ```
 
-Pour effectuer le redimensionnement, nous vérifions le ratio de la table sur l'insertion et la suppression. Si elle est au-dessus ou au-dessous des limites prédéfinies de 0,7 et 0,1, nous redimensionnons vers le haut ou vers le bas.
+Pour effectuer le redimensionnement, nous vérifions le ratio de la table sur l'insertion et la suppression. En fonction de S'il est au-dessus ou au-dessous des limites prédéfinies de 0,7 et 0,1, nous redimensionnons vers le haut ou vers le bas.
 
-Pour éviter de faire des calculs en virgule flottante, nous multiplions le nombre par 100, et vérifions s'il est supérieur ou inférieur à 70 ou 10.
+Pour éviter de faire des calculs en nombre flottant, nous multiplions le nombre par 100, et vérifions s'il est supérieur ou inférieur à 70 ou 10.
 
 ```c
 // hash_table.c
@@ -173,6 +169,6 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 }
 ```
 
-Prochaine section: [Annexe : Gestion de collisions alternative](../07-appendix)
+Prochaine section: [Annexe : Gestion alternative de collisions](../07-appendix)
 
 [Table des matières](/.translations/fr/README.md#contents)
