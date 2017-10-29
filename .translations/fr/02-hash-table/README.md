@@ -1,6 +1,6 @@
 # Structure d'une table de hachage
 
-Nos paires de valeurs-clés (éléments) seront chacune stockées dans une `struct`:
+Nos paires de clé-valeur (éléments) seront stockées chacune dans une `struct`:
 
 ```c
 // hash_table.h
@@ -10,7 +10,7 @@ typedef struct {
 } ht_item;
 ```
 
-Notre table de hashage stocke un tableau de pointeurs sur des éléments et des détails sur sa taille et sa totalité :
+Notre table de hachage stocke un tableau de pointeurs sur éléments et des détails sur sa taille et son contenu :
 
 ```c
 // hash_table.h
@@ -23,9 +23,9 @@ typedef struct {
 
 ## Initialisation et suppression
 
-Nous devons définir les fonctions d'initialisation pour cette structure.
+Nous devons définir les fonctions d'initialisation pour la structure `ht_item`.
 
-La fonction suivante attribue un morceau de mémoire à la taille d'un `ht_item` et enregistre une copie des chaînes `k` et `v` dans le nouveau morceau de mémoire. La fonction est marquée comme «statique» car elle ne sera appelée que par code interne à la table de hachage.
+La fonction suivante alloue une partie de la mémoire à la taille d'un `ht_item` et enregistre une copie des chaînes `k` et `v` dans ce bout de mémoire. La fonction est marquée comme «statique» car elle ne sera appelée que par du code interne à la table de hachage.
 
 ```c
 // hash_table.c
@@ -42,9 +42,9 @@ static ht_item* ht_new_item(const char* k, const char* v) {
 }
 ```
 
-La fonction `ht_new`, quand à elle, initialise une nouvelle table de hachage avec une valeur `size` qui correspond au nombre d'élement que nous pouvons stocker (53 pour l'instant). Nous étendrons ceci dans la section sur [redimensionnement](/06-redimensionnement).
+La fonction `ht_new`, quand à elle, initialise une nouvelle table de hachage avec une valeur `size` qui correspond au nombre d'éléments que nous pouvons stocker (53 actuellement). Nous étendrons ceci dans la section sur le [redimensionnement](/06-redimensionnement).
 
-Nous initialisons le tableau d'éléments avec `calloc`, qui remplit la mémoire allouée avec les octets `NULL`. Une entrée «NULL» dans le tableau indique que l'élement est vide.
+Nous initialisons le tableau d'éléments avec la fonction `calloc`, qui remplit la mémoire allouée avec les octets `NULL`. Une entrée «NULL» dans le tableau indique que l'élément est vide.
 
 ```c
 // hash_table.c
@@ -58,7 +58,7 @@ ht_hash_table* ht_new() {
 }
 ```
 
-Nous avons également besoin de fonctions pour supprimer des `ht_item`s et des `ht_hash_tables`. Ces fonctions liberent la mémoire que nous avons allouée, donc nous ne causons pas de [fuites de mémoire](https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire).
+Nous avons également besoin de fonctions pour supprimer des `ht_item`s et des `ht_hash_tables`. Ces fonctions libèrent la mémoire que nous avons allouée, donc nous ne causons pas de [fuites de mémoire](https://fr.wikipedia.org/wiki/Fuite_de_m%C3%A9moire).
 
 ```c
 // hash_table.c
@@ -81,8 +81,8 @@ void ht_del_hash_table(ht_hash_table* ht) {
 }
 ```
 
-Nous avons écrit un code qui définit une table de hash. Nous pouvons en instancier et détruire une.
-Même si cela ne fait pas grand chose à ce stade, nous pouvons l'essayer :
+Nous avons écrit du code qui définit une table de hachage. Nous pouvons maintenant en instancier et détruire une.
+Même si cela ne fait pas grand chose à ce stade, nous pouvons tout de même l'essayer :
 
 ```c
 // main.c
@@ -94,6 +94,6 @@ int main() {
 }
 ```
 
-Next section: [Fonction de hachage](../03-hashing)
+Section suivante: [Fonction de hachage](../03-hashing)
 
 [Table des matières](/.translations/fr/README.md#contents)
