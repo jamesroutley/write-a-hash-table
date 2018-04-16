@@ -142,6 +142,6 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 }
 ```
 
-Prochaine section: [Redimensionnement de la table de Hachage](../05-resizing)
+Prochaine section: [Redimensionnement de la table de Hachage](../06-resizing)
 
 [Table des matières](/.translations/fr/README.md#contents)
