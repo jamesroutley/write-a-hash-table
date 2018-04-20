@@ -28,7 +28,7 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
         index = ht_get_hash(item->key, ht->size, i);
         cur_item = ht->items[index];
         i++;
-    } 
+    }
     ht->items[index] = item;
     ht->count++;
 }
@@ -54,7 +54,7 @@ char* ht_search(ht_hash_table* ht, const char* key) {
         index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
-    } 
+    }
     return NULL;
 }
 ```
@@ -89,7 +89,7 @@ void ht_delete(ht_hash_table* ht, const char* key) {
         index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
-    } 
+    }
     ht->count--;
 }
 ```
@@ -115,7 +115,7 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 char* ht_search(ht_hash_table* ht, const char* key) {
     // ...
     while (item != NULL) {
-        if (item != &HT_DELETED_ITEM) { 
+        if (item != &HT_DELETED_ITEM) {
             if (strcmp(item->key, key) == 0) {
                 return item->value;
             }
@@ -136,6 +136,8 @@ original key will always be found, and we are unable to access the second item.
 We can fix this my modifying `ht_insert` to delete the previous item and insert
 the new item at its location.
 
+In addition, deleling hash table need to avoid delete HT_DELETED_ITEM.
+
 ```c
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
@@ -149,8 +151,19 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
             }
         }
         // ...
-    } 
+    }
     // ...
+}
+
+void ht_del_hash_table(ht_hash_table* t) {
+    for (int i = 0; i < t->size; ++i) {
+        ht_item* item = t->items[i];
+        if (item != NULL && item != &HT_DELETED_ITEM) {
+            ht_del_item(item);
+        }
+    }
+    free(t->items);
+    free(t);
 }
 ```
 
