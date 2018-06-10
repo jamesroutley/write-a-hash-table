@@ -1,6 +1,6 @@
 ## Traitement des collisions
 
-Les fonctions de hachage peuvent avoir un nombre infini d'entrées mais ont un nombre fini de sorties. Differentes entrées peuvent ainsi retourner le même résultat. C'est ce que l'on appelle une collision.
+Les fonctions de hachage peuvent avoir un nombre infini d'entrées mais ont un nombre fini de sorties. Différentes entrées peuvent ainsi retourner le même résultat. C'est ce que l'on appelle une collision.
 
 Notre table de hachage traitera les collisions en utilisant une technique appelée [adressage ouvert](https://fr.wikipedia.org/wiki/Table_de_hachage#Adressage_ouvert) avec une méthode de sondage de type double hachage.
 
@@ -10,7 +10,7 @@ Pour un aperçu des autres types de résolution de collision, voir l'[annexe] (.
 
 ## Double hachage
 
-L'index que nous allons utiliser apres `i` collisions est defini comme ceci :
+L'index que nous allons utiliser après `i` collisions est défini comme ceci :
 
 ```
 index = hash_a(string) + i * hash_b(string) % num_buckets
