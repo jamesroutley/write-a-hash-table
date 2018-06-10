@@ -4,7 +4,7 @@ Dans cette section, nous allons écrire notre propre fonction de hachage.
 
 Cette fonction devra :
 
-- Prendre une chaine de charactères en paramètre et retourner un nombre entre `0` et `m` où `m` est la taille de notre tableau d'éléments. Ce nombre servira d'index dans le tableau.
+- Prendre une chaine de caractères en paramètre et retourner un nombre entre `0` et `m` où `m` est la taille de notre tableau d'éléments. Ce nombre servira d'index dans le tableau.
 - Renvoyer une distribution uniforme d'indexes pour un ensemble de paramètres d'entrées. Si notre fonction de hachage est inégalement répartie, cela entraînera un taux plus élevé de [collisions](#Données pathologiques). Les collisions réduisent l'efficacité de notre table de hachage.
 
 ## Algorithme
@@ -63,7 +63,7 @@ static int ht_hash(const char* s, const int a, const int m) {
 
 ## Données pathologiques
 
-Une fonction de hachage idéale renverrait toujours une distribution uniforme de résultats. Cependant, pour toute fonction de hachage, il existe un ensemble d'entrées «pathologiques», qui aboutit à la même valeur. Pour trouver ces entrées, appliquez la fonction sur un large ensemble d'entrées. Toutes les entrées differentes qui retournent un même résultat forment un ensemble pathologique.
+Une fonction de hachage idéale renverrait toujours une distribution uniforme de résultats. Cependant, pour toute fonction de hachage, il existe un ensemble d'entrées «pathologiques», qui aboutit à la même valeur. Pour trouver ces entrées, appliquez la fonction sur un large ensemble d'entrées. Toutes les entrées différentes qui retournent un même résultat forment un ensemble pathologique.
 
 L'existence d'ensembles d'entrées pathologiques signifie qu'il n'existe pas de fonctions de hachage parfaites pour toutes les entrées. Le mieux que nous puissions faire est de créer une fonction qui fonctionne bien pour le jeu de données attendu.
 
