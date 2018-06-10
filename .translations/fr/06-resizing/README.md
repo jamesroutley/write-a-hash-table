@@ -5,23 +5,23 @@ Pour le moment, notre table de hachage a une taille fixe. Plus on insère d'él�
 1. La performance de la table de hachage diminue avec des taux élevés de collisions
 2. La table ne peut que stocker un nombre fixe d'éléments. Si nous essayons de stocker plus que cela, la fonction d'insertion échouera.
 
-Pour pallier à cela, nous pouvons augmenter la taille du tableau de l'article quand il est trop rempli. Nous enregistrons le nombre d'éléments stockés dans la table de hachage grace à l'attribut `count` de la table. Sur chaque insertion et suppression, nous calculons la «charge» du tableau (nombre d'éléments/nombre total d'éléments). Si ce ratio est supérieur ou inférieur à certaines valeurs, nous redimensionnons le tableau :
+Pour pallier à cela, nous pouvons augmenter la taille du tableau de l'article quand il est trop rempli. Nous enregistrons le nombre d'éléments stockés dans la table de hachage grâce à l'attribut `count` de la table. Sur chaque insertion et suppression, nous calculons la «charge» du tableau (nombre d'éléments/nombre total d'éléments). Si ce ratio est supérieur ou inférieur à certaines valeurs, nous redimensionnons le tableau :
 
 - Si le ratio est > 0.7, on l'agrandit
 - Si le ratio est < 0.1, on le diminue
 
 Pour redimensionner, nous créons une nouvelle table de hachage ou l'on insère tous les éléments non supprimés.
 
-Notre nouvelle taille doit être un nombre premier correspondant à peu près à deux fois (aggrandissement) ou à la moitié de la taille actuelle (réduction).
+Notre nouvelle taille doit être un nombre premier correspondant à peu près à deux fois (agrandissement) ou à la moitié de la taille actuelle (réduction).
 Trouver la nouvelle taille de tableau n'est pas trivial. Pour ce faire nous :
-    * Stockons une taille de base (commencons par 50)
+    * Stockons une taille de base (commençons par 50)
     * Définissons la taille réelle comme le premier nombre premier plus grand que la taille de base.
     * Doublons la taille de base et trouvons le premier nombre premier plus grand (pour redimensionner vers le bas, on réduit la taille de moitié et trouvons le premier plus grand)
 
 
 Il faut maintenant une méthode pour trouver le prochain nombre premier suivant un nombre donné en paramètre. Nous utiliserons la force brute en vérifiant un par un tous les nombres qui le suivent.
 
-Nous implementons cela dans deux nouveaux fichiers, `prime.h` et `prime.c`.
+Nous implémentons cela dans deux nouveaux fichiers, `prime.h` et `prime.c`.
 
 
 ```c
