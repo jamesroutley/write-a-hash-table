@@ -97,5 +97,5 @@ int main() {
 }
 ```
 
-下一节: [哈希的方法](../03-hashing)
+下一节: [哈希函数](../03-hashing)
 [目录](/.translations/zh-cn/README.md#contents)

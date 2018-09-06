@@ -39,4 +39,4 @@ static int ht_get_hash(
 ```
 
 下一节: [哈希表的函数](../05-methods)
-[Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
+[目录](/.translations/zh-cn/README.md#contents)
