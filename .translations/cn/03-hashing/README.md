@@ -80,4 +80,4 @@ and certain web services.
 
 
 Next section: [处理哈希碰撞](../04-collisions)
-[目录](/.translations/zh-cn/README.md#contents)
+[目录](/.translations/cn/README.md#contents)

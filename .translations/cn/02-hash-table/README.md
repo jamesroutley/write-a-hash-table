@@ -98,4 +98,4 @@ int main() {
 ```
 
 下一节: [哈希函数](../03-hashing)
-[目录](/.translations/zh-cn/README.md#contents)
+[目录](/.translations/cn/README.md#contents)

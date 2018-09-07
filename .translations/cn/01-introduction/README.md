@@ -54,4 +54,4 @@
 在检索的时候逐个遍历对比。关联数组和散列表经常被混淆，因为散列表通常都是通过关联数组来实现。
 
 下一节: [哈希表结构](../02-hash-table)
-[目录](/.translations/zh-cn/README.md#contents)
+[目录](/.translations/cn/README.md#contents)

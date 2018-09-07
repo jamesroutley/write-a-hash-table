@@ -1,8 +1,8 @@
-[<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md) [<img src="/.translations/flags/cn.png">](/.translations/zh-cn/README.md)
+[<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md) [<img src="/.translations/flags/cn.png">](/.translations/cn/README.md)
 
 # 哈希表的实现（C）
 
-[哈希表](https://en.wikipedia.org/wiki/Hash_table) 是一种最常用的数据结构。 由于哈希表的快速存储以及插入，搜索，删除的可扩展，使得其在计算机领域有着广泛的应用
+[哈希表](https://en.wikipedia.org/wiki/Hash_table) 是一种最常用的数据结构。由于哈希表具有的快速存储以及可扩展性的特性，使得其在计算机领域有着广泛的应用
 
 在本篇教程中，我们将用 C 实现基于[开放寻址](https://en.wikipedia.org/wiki/Open_addressing)以及[再哈希](https://en.wikipedia.org/wiki/Double_hashing)的哈希表。
 通过这篇教程，你可以知道：
