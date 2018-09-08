@@ -153,4 +153,4 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 ```
 
 下一节: [调整哈希表大小](../06-resizing)
-[目录](/.translations/cn/README.md#contents)
+[目录](/.translations/cn/README.md#目录)

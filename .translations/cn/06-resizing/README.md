@@ -172,4 +172,4 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 ```
 
 下一节: [附录](../07-appendix)
-[目录](/.translations/cn/README.md#contents)
+[目录](/.translations/cn/README.md#目录)
