@@ -1,4 +1,4 @@
-[<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md)
+[<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md) [<img src="/.translations/flags/cn.png">](/.translations/cn/README.md)
 
 # Write a hash table in C
 
