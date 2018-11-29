@@ -9,7 +9,7 @@ The hash function we choose should:
 - Return an even distribution of bucket indexes for an average set of inputs. If
   our hash function is unevenly distributed, it will put more items in some
   buckets than others. This will lead to a higher rate of
-  [collisions](#Pathological data). Collisions reduce the efficiency of our hash table.
+  [collisions](#pathological-data). Collisions reduce the efficiency of our hash table.
 
 ## Algorithm
 
