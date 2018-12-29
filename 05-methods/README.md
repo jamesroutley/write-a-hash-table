@@ -154,5 +154,19 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 }
 ```
 
+We also need to modify the `ht_del_hash_table` to skip the deleted item.
+```c
+void ht_del_hash_table(ht_hash_table* ht) {
+    for (int i = 0; i < ht->size; i++) {
+        ht_item* item = ht->items[i];
+        if (item != NULL && item != &HT_DELETED_ITEM) {
+            ht_del_item(item);
+        }
+    }
+    free(ht->items);
+    free(ht);
+}
+```
+
 Next section: [Resizing tables](/06-resizing)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
