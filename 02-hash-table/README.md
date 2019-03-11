@@ -92,7 +92,7 @@ one. Although it doesn't do much at this point, we can still try it out.
 
 ```c
 // main.c
-#include "hash_table.h"
+#include "hash_table.c"
 
 int main() {
     ht_hash_table* ht = ht_new();
