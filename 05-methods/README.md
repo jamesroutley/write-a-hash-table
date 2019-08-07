@@ -133,7 +133,7 @@ two items with the same key, the keys will collide, and the second item will be
 inserted into the next available bucket. When searching for the key, the
 original key will always be found, and we are unable to access the second item.
 
-We can fix this my modifying `ht_insert` to delete the previous item and insert
+We can fix this by modifying `ht_insert` to delete the previous item and insert
 the new item at its location.
 
 ```c
