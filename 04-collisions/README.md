@@ -17,7 +17,7 @@ For an overview of other types of collision resolution, see the
 The index that should be used after `i` collisions is given by:
 
 ```
-index = hash_a(string) + i * hash_b(string) % num_buckets
+index = (hash_a(string) + i * hash_b(string)) % num_buckets
 ```
 
 We see that if no collisions have occurred, `i = 0`, so the index is just 
