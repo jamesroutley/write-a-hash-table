@@ -37,14 +37,21 @@ index = (hash_a(string) + i * (hash_b(string) + 1)) % num_buckets
 
 ```c
 // hash_table.c
+
+static int floor_mod(const int mod_num, const int check_num) {
+    return check_num % mod_num == 0 ? check_num - 1 : check_num;
+}
 static int ht_get_hash(
     const char* s, const int num_buckets, const int attempt
 ) {
     const int hash_a = ht_hash(s, HT_PRIME_1, num_buckets);
     const int hash_b = ht_hash(s, HT_PRIME_2, num_buckets);
-    return (hash_a + (attempt * (hash_b + 1))) % num_buckets;
+    const int mod_index = floor_mod(num_buckets, (hash_b + 1));
+    return (hash_a + attempt_i * mod_index) % num_buckets;
 }
 ```
+
+Function `floor_mod` help reducing `(hash_b + 1)` == `num_buckets` and causing loop same index result.
 
 Next section: [Hash table methods](/05-methods)
 [Table of contents](https://github.com/jamesroutley/write-a-hash-table#contents)
