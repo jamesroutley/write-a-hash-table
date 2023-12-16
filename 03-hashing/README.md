@@ -16,7 +16,7 @@ The hash function we choose should:
 We'll make use of a generic string hashing function, expressed below in
 pseudocode.
 
-```
+```c
 function hash(string, a, num_buckets):
     hash = 0
     string_len = length(string)
@@ -41,7 +41,7 @@ character. We'll use ASCII character codes for this.
 
 Let's try the hash function out:
 
-```
+```c
 hash("cat", 151, 53)
 
 hash = (151**2 * 99 + 151**1 * 97 + 151**0 * 116) % 53
@@ -52,7 +52,7 @@ hash = 5
 
 Changing the value of `a` give us a different hash function.
 
-```
+```c
 hash("cat", 163, 53) = 3
 ```
 
