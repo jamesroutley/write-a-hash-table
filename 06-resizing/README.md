@@ -30,10 +30,11 @@ find the next larger prime.
 
 Our base sizes start at 50.
 
-Instead of storing a list of primes, we use a brute-force approach to find
-the next one by checking each successive number for primality. While brute-forcing anything sounds alarming, the
-number of values we actually have to check is low, and the time it takes is
-outweighed by the time spent re-hashing every item in the table.
+Instead of storing a list of primes, we use a brute-force approach to find the
+next one by checking each successive number for primality. While brute-forcing
+anything sounds alarming, the number of values we actually have to check is low,
+and the time it takes is outweighed by the time spent re-hashing every item in
+the table.
 
 First, let's define a function for finding the next prime. We'll do this in two
 new files, `prime.h` and `prime.c`.
