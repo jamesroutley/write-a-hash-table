@@ -28,10 +28,10 @@ first prime larger than the base size. To resize up, we double the base size,
 and find the first larger prime, and to resize down, we halve the size and
 find the next larger prime.
 
-Our base sizes start at 50. Instead of storing
+Our base sizes start at 50.
 
-We use a brute-force method to find the next prime, by checking if each
-successive number is prime. While brute-forcing anything sounds alarming, the
+Instead of storing a list of primes, we use a brute-force approach to find
+the next one by checking each successive number for primality. While brute-forcing anything sounds alarming, the
 number of values we actually have to check is low, and the time it takes is
 outweighed by the time spent re-hashing every item in the table.
 
