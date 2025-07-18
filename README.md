@@ -1,44 +1,79 @@
 [<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md)
 
-# Write a hash table in C
+# Build Your Own Hash Table in C
 
-[Hash tables](https://en.wikipedia.org/wiki/Hash_table) are one of the most useful data structures. Their quick and scalable
-insert, search and delete make them relevant to a large number of computer
-science problems.
+Welcome! In this tutorial, you'll learn how to create a hash table from scratch in C. Hash tables are powerful data structures that let you store and retrieve data quickly. By following along, you'll gain hands-on experience and a deeper understanding of how hash tables work.
 
-In this tutorial, we implement an [open-addressed](https://en.wikipedia.org/wiki/Open_addressing), [double-hashed](https://en.wikipedia.org/wiki/Double_hashing) hash table in
-C. By working through this tutorial, you will gain:
+---
 
-- Understanding of how a fundamental data structure works under the hood
-- Deeper knowledge of when to use hash tables, when not to use them, and how
-  they can fail
-- Exposure to new C code
+## Why Hash Tables?
 
-C is a great language to write a hash table in because:
+- **Fast:** Insert, search, and delete operations are quick.
+- **Useful:** They're used in many computer science problems.
+- **Educational:** Writing one yourself teaches you a lot about data structures and C.
 
-- The language doesn't come with one included
-- It is a low-level language, so you get deeper exposure to how things work at a
-  machine level
+---
 
-This tutorial assumes some familiarity with programming and C syntax. The code
-itself is relatively straightforward, and most issues should be solvable with a
-web search. If you run into further problems, please open a GitHub
-[Issue](https://github.com/jamesroutley/write-a-hash-table/issues).
+## What You'll Learn
 
-The full implementation is around 200 lines of code, and should take around an
-hour or two to work through.
+- How hash tables work under the hood
+- When to use hash tables—and when not to
+- How to handle collisions and resizing
+- Practical C programming skills
 
-## Contents
+---
 
-1. [Introduction](/01-introduction)
-2. [Hash table structure](/02-hash-table)
-3. [Hash functions](/03-hashing)
-4. [Handling collisions](/04-collisions)
-5. [Hash table methods](/05-methods)
-6. [Resizing tables](/06-resizing)
-6. [Appendix: alternative collision handling](/07-appendix)
+## Prerequisites
+
+- Basic knowledge of C syntax
+- Familiarity with compiling and running C programs
+
+---
+
+## Step-by-Step Instructions
+
+1. **Start with the Introduction:**  
+   Learn what hash tables are and why they're important.  
+   👉 [Introduction](/01-introduction)
+
+2. **Understand the Structure:**  
+   See how a hash table is organized in C.  
+   👉 [Hash table structure](/02-hash-table)
+
+3. **Write Hash Functions:**  
+   Learn how to convert keys into table indices.  
+   👉 [Hash functions](/03-hashing)
+
+4. **Handle Collisions:**  
+   Discover how to deal with keys that hash to the same index.  
+   👉 [Handling collisions](/04-collisions)
+
+5. **Implement Table Methods:**  
+   Add functions for inserting, searching, and deleting data.  
+   👉 [Hash table methods](/05-methods)
+
+6. **Resize the Table:**  
+   Make your hash table scalable by resizing it when needed.  
+   👉 [Resizing tables](/06-resizing)
+
+7. **Explore Alternatives:**  
+   Check out other ways to handle collisions.  
+   👉 [Appendix: alternative collision handling](/07-appendix)
+
+---
+
+## Tips
+
+- If you get stuck, try searching online or open a [GitHub Issue](https://github.com/jamesroutley/write-a-hash-table/issues).
+- The full implementation is about 200 lines of code and should take 1–2 hours.
+
+---
 
 ## Credits
 
-This tutorial was written by [James Routley](https://twitter.com/james_routley),
-who blogs at [routley.io](https://routley.io).
+Tutorial by [James Routley](https://twitter.com/james_routley)  
+More at [routley.io](https://routley.io)
+
+---
+
+Happy coding!
