@@ -14,7 +14,7 @@ index, and use the index to find it in the array.
 Array indexing has algorithmic complexity `O(1)`, making hash tables fast at
 storing and retrieving data.
 
-Our hash table will map string keys to string values, but the principals
+Our hash table will map string keys to string values, but the principles
 given here are applicable to hash tables which map arbitrary key types to
 arbitrary value types. Only ASCII strings will be supported, as supporting
 unicode is non-trivial and out of scope of this tutorial.
