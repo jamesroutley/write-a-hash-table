@@ -84,22 +84,25 @@ void ht_delete(ht_hash_table* ht, const char* key) {
             if (strcmp(item->key, key) == 0) {
                 ht_del_item(item);
                 ht->items[index] = &HT_DELETED_ITEM;
+                ht->count--;
+                return;
             }
         }
         index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
     } 
-    ht->count--;
 }
 ```
 After deleting, we decrement the hash table's `count` attribute.
 
-We also need to modify `ht_insert` and `ht_search` functions to take account of
+We also need to modify `ht_insert`, `ht_search`, and `ht_del_hash_table` functions to take account of
 deleted nodes.
 
 When searching, we ignore and 'jump over' deleted nodes. When inserting, if we
 hit a deleted node, we can insert the new node into the deleted slot.
+
+When deleting the hash table, we need to make sure to not call free() on the HT_DELETED_ITEM pointers.
 
 ```c
 // hash_table.c
@@ -123,6 +126,17 @@ char* ht_search(ht_hash_table* ht, const char* key) {
         // ...
     }
     // ...
+}
+
+void ht_del_hash_table(ht_hash_table* ht) {
+    for (int i = 0; i < ht->size; i++) {
+        ht_item* item = ht->items[i];
+        if (item != NULL && item != &HT_DELETED_ITEM) {
+            ht_del_item(item);
+        }
+    }
+    free(ht->items);
+    free(ht);
 }
 ```
 
