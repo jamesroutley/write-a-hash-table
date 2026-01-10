@@ -1,3 +1,5 @@
+[<img src="/.translations/flags/gb.png">](/README.md) [<img src="/.translations/flags/fr.png">](/.translations/fr/README.md) [<img src="/.translations/flags/co.png">](/.translations/es/README.md)
+
 # Escribe una tabla hash en C
 
 Las [tablas hash](https://en.wikipedia.org/wiki/Hash_table) son una de las estructuras de datos más útiles. Su inserción, búsqueda y eliminación rápidas y escalables las hacen relevantes para una gran cantidad de problemas de ciencias de la computación.
