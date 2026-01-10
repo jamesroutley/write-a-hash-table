@@ -137,5 +137,5 @@ void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
 }
 ```
 
-Siguiente sección: [Redimensionamiento de tablas](/06-redimensionamiento/README.md)
+Siguiente sección: [Redimensionamiento de tablas](../06-redimensionamiento/README.md)
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)

@@ -163,5 +163,5 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 }
 ```
 
-Siguiente sección: [Apéndice](/07-apendice/README.md)
+Siguiente sección: [Apéndice](../07-apendice/README.md)
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)

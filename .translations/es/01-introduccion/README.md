@@ -46,5 +46,5 @@ Hay muchos nombres que se usan indistintamente. En este artículo, usaremos los 
 
 Los arreglos asociativos pueden implementarse con muchas estructuras de datos subyacentes diferentes. Uno (no eficiente) puede implementarse simplemente almacenando elementos en un arreglo, e iterando a través del arreglo cuando se busca. Los arreglos asociativos y las tablas hash a menudo se confunden porque los arreglos asociativos se implementan tan frecuentemente como tablas hash.
 
-Siguiente sección: [Estructura de la tabla hash](/02-estructura-tabla-hash/README.md)
+Siguiente sección: [Estructura de la tabla hash](../02-estructura-tabla-hash/README.md)
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)

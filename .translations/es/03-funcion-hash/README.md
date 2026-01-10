@@ -70,5 +70,5 @@ La existencia de conjuntos de entrada patológicos significa que no hay funcione
 
 Las entradas patológicas también representan un problema de seguridad. Si una tabla hash es alimentada con un conjunto de claves que colisionan por algún usuario malicioso, entonces las búsquedas de esas claves tomarán mucho más tiempo (`O(n)`) de lo normal (`O(1)`). Esto puede usarse como un ataque de denegación de servicio contra sistemas que están sustentados por tablas hash, como DNS y ciertos servicios web.
 
-Siguiente sección: [Manejo de colisiones](/04-manejo-colisiones/README.md)
+Siguiente sección: [Manejo de colisiones](../04-manejo-colisiones/README.md)
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)

@@ -35,5 +35,5 @@ static int ht_get_hash(
 }
 ```
 
-Siguiente sección: [Métodos de la tabla hash](/05-metodos/README.md)
+Siguiente sección: [Métodos de la tabla hash](../05-metodos/README.md)
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)

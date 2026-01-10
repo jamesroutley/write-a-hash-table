@@ -89,5 +89,5 @@ int main() {
 }
 ```
 
-Siguiente sección: [Funciones hash](/03-funcion-hash/README.md) 
+Siguiente sección: [Funciones hash](../03-funcion-hash/README.md) 
 [Tabla de contenidos](https://github.com/jamesroutley/write-a-hash-table#contents)
