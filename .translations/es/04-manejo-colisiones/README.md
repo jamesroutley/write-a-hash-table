@@ -4,7 +4,7 @@ Las funciones hash mapean un número infinitamente grande de entradas a un núme
 
 Nuestra tabla hash manejará las colisiones usando una técnica llamada direccionamiento abierto con hash doble. El hash doble hace uso de dos funciones hash para calcular el índice donde un elemento debe almacenarse después de `i` colisiones.
 
-Para una visión general de otros tipos de resolución de colisiones, consulta el [apéndice](/07-appendix).
+Para una visión general de otros tipos de resolución de colisiones, consulta el [apéndice](../07-apendice/README.md).
 
 ## Hash doble
 

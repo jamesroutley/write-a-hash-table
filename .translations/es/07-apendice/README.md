@@ -27,7 +27,7 @@ Cuando ocurre una colisión, el índice se incrementa y el elemento se pone en l
 - Buscar: hashear la clave para encontrar el índice de la cubeta. Incrementar repetidamente el índice, comparando la clave de cada elemento con la clave de búsqueda, hasta encontrar una cubeta vacía. Si se encuentra un elemento con una clave coincidente, devolver el valor, de lo contrario devolver `NULL`.
 - Eliminar: hashear la clave para encontrar el índice de la cubeta. Incrementar repetidamente el índice, comparando la clave de cada elemento con la clave a eliminar, hasta encontrar una cubeta vacía. Si se encuentra un elemento con una clave coincidente, eliminarlo. Eliminar este elemento rompe la cadena, así que no tenemos más opción que reinsertar todos los elementos en la cadena después del elemento eliminado.
 
-El sondeo lineal ofrece buen [rendimiento de caché](https://en.wikipedia.org/wiki/Locality_of_reference), pero sufre de problemas de agrupamiento. Poner elementos colisionados en la siguiente cubeta disponible puede llevar a largos tramos contiguos de cubetas llenas, que necesitan ser iterados al insertar, buscar o eliminar.
+El sondeo lineal ofrece buen [rendimiento de caché](https://es.wikipedia.org/wiki/Cercan%C3%ADa_de_referencias), pero sufre de problemas de agrupamiento. Poner elementos colisionados en la siguiente cubeta disponible puede llevar a largos tramos contiguos de cubetas llenas, que necesitan ser iterados al insertar, buscar o eliminar.
 
 #### Sondeo cuadrático
 

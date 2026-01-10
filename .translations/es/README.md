@@ -2,18 +2,18 @@
 
 # Escribe una tabla hash en C
 
-Las [tablas hash](https://en.wikipedia.org/wiki/Hash_table) son una de las estructuras de datos más útiles. Su inserción, búsqueda y eliminación rápidas y escalables las hacen relevantes para una gran cantidad de problemas de ciencias de la computación.
+Las [tablas hash](https://es.wikipedia.org/wiki/Tabla_hash) son una de las estructuras de datos más útiles. Su inserción, búsqueda y eliminación rápidas y escalables las hacen relevantes para una gran cantidad de problemas de ciencias de la computación.
 
-En este tutorial, implementamos una tabla hash con [direccionamiento abierto](https://en.wikipedia.org/wiki/Open_addressing) y [hash doble](https://en.wikipedia.org/wiki/Double_hashing) en C. Al trabajar con este tutorial, obtendrás:
+En este tutorial, implementamos una tabla hash con [direccionamiento abierto](https://en.wikipedia.org/wiki/Open_addressing)<sup>en</sup> y [hash doble](https://en.wikipedia.org/wiki/Double_hashing)<sup>en</sup> en C. Al trabajar con este tutorial, obtendrás:
 
-- Comprensión de cómo funciona una estructura de datos fundamental por debajo
-- Conocimiento más profundo de cuándo usar tablas hash, cuándo no usarlas, y cómo pueden fallar
-- Exposición a nuevo código en C
+- Comprensión de cómo funciona una estructura de datos fundamental por debajo.
+- Conocimiento más profundo de cuándo usar tablas hash, cuándo no usarlas, y cómo pueden fallar.
+- Exposición a nuevo código en C.
 
 C es un gran lenguaje para escribir una tabla hash porque:
 
-- El lenguaje no viene con una incluida
-- Es un lenguaje de bajo nivel, por lo que obtienes una exposición más profunda a cómo funcionan las cosas a nivel de máquina
+- El lenguaje no viene con una incluida.
+- Es un lenguaje de bajo nivel, por lo que obtienes una exposición más profunda a cómo funcionan las cosas a nivel de máquina.
 
 Este tutorial asume cierta familiaridad con programación y sintaxis de C. El código en sí es relativamente sencillo, y la mayoría de los problemas deberían ser resolubles con una búsqueda web. Si encuentras más problemas, por favor abre un [Issue](https://github.com/jamesroutley/write-a-hash-table/issues) en GitHub.
 

@@ -23,7 +23,7 @@ typedef struct {
 
 ## Inicialización y eliminación
 
-Necesitamos definir funciones de inicialización para `ht_item`s. Esta función asigna un bloque de memoria del tamaño de un `ht_item`, y guarda una copia de las cadenas `k` y `v` en el nuevo bloque de memoria. La función está marcada como `static` porque solo será llamada por código interno de la tabla hash.
+Necesitamos definir funciones de inicialización para `ht_item`. Esta función asigna un bloque de memoria del tamaño de un `ht_item`, y guarda una copia de las cadenas `k` y `v` en el nuevo bloque de memoria. La función está marcada como `static` porque solo será llamada por código interno de la tabla hash.
 
 ```c
 // hash_table.c
@@ -40,7 +40,7 @@ static ht_item* ht_new_item(const char* k, const char* v) {
 }
 ```
 
-`ht_new` inicializa una nueva tabla hash. `size` define cuántos elementos podemos almacenar. Esto está fijado en 53 por ahora. Expandiremos esto en la sección sobre [redimensionamiento](/06-resizing). Inicializamos el arreglo de elementos con `calloc`, que llena la memoria asignada con bytes `NULL`. Una entrada `NULL` en el arreglo indica que la cubeta está vacía.
+`ht_new` inicializa una nueva tabla hash. `size` define cuántos elementos podemos almacenar. Esto está fijado en 53 por ahora. Expandiremos esto en la sección sobre [redimensionamiento](../06-redimensionamiento/README.md). Inicializamos el arreglo de elementos con `calloc`, que llena la memoria asignada con bytes `NULL`. Una entrada `NULL` en el arreglo indica que la cubeta está vacía.
 
 ```c
 // hash_table.c
@@ -54,7 +54,7 @@ ht_hash_table* ht_new() {
 }
 ```
 
-También necesitamos funciones para eliminar `ht_item`s y `ht_hash_tables`, que liberan (`free`) la memoria que hemos asignado, para no causar [fugas de memoria](https://en.wikipedia.org/wiki/Memory_leak).
+También necesitamos funciones para eliminar `ht_item` y `ht_hash_tables`, que liberan (`free`) la memoria que hemos asignado, para no causar [fugas de memoria](https://es.wikipedia.org/wiki/Fuga_de_memoria).
 
 ```c
 // hash_table.c

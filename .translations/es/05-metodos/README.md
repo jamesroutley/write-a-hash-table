@@ -11,7 +11,7 @@ void ht_delete(ht_hash_table* h, const char* key);
 
 ## Insertar
 
-Para insertar un nuevo par clave-valor, iteramos a través de los índices hasta encontrar una cubeta vacía. Luego insertamos el elemento en esa cubeta e incrementamos el atributo `count` de la tabla hash, para indicar que se ha añadido un nuevo elemento. El atributo `count` de una tabla hash será útil cuando veamos el [redimensionamiento](/06-resizing) en la siguiente sección.
+Para insertar un nuevo par clave-valor, iteramos a través de los índices hasta encontrar una cubeta vacía. Luego insertamos el elemento en esa cubeta e incrementamos el atributo `count` de la tabla hash, para indicar que se ha añadido un nuevo elemento. El atributo `count` de una tabla hash será útil cuando veamos el [redimensionamiento](../06-redimensionamiento/README.md) en la siguiente sección.
 
 ```c
 // hash_table.c
