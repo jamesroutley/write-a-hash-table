@@ -19,13 +19,13 @@ La implementación completa tiene alrededor de 200 líneas de código, y deberí
 
 ## Contenidos
 
-1. [Introducción](/01-introduccion/README.md)
-2. [Estructura de la tabla hash](/02-estructura-tabla-hash/README.md)
-3. [Funciones hash](/03-funcion-hash/README.md)
-4. [Manejo de colisiones](/04-manejo-colisiones/README.md)
-5. [Métodos de la tabla hash](/05-metodos/README.md)
-6. [Redimensionamiento de tablas](/06-redimensionamiento/README.md)
-7. [Apéndice: manejo alternativo de colisiones](/07-apendice/README.md)
+1. [Introducción](/01-introduction/README.md)
+2. [Estructura de la tabla hash](/02-hash-table/README.md)
+3. [Funciones hash](/03-hashing/README.md)
+4. [Manejo de colisiones](/04-collisions/README.md)
+5. [Métodos de la tabla hash](/05-methods/README.md)
+6. [Redimensionamiento de tablas](/06-resizing/README.md)
+7. [Apéndice: manejo alternativo de colisiones](/07-appendix/README.md)
 
 ## Créditos
 
