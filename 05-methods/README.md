@@ -133,24 +133,31 @@ two items with the same key, the keys will collide, and the second item will be
 inserted into the next available bucket. When searching for the key, the
 original key will always be found, and we are unable to access the second item.
 
-We can fix this my modifying `ht_insert` to delete the previous item and insert
-the new item at its location.
+We can fix this by modifying `ht_insert` to search through the probe chain for
+an existing key to update. If the key is found, we replace it and return.
+If the key does not exist, we insert it into the first deleted slot encountered
+(or the empty `NULL` bucket if none were seen), avoiding duplicate items.
 
 ```c
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     // ...
+    int first_deleted_index = -1;
     while (cur_item != NULL) {
-        if (cur_item != &HT_DELETED_ITEM) {
+        if (cur_item != &HT_DELETED_ITEM) {
             if (strcmp(cur_item->key, key) == 0) {
                 ht_del_item(cur_item);
                 ht->items[index] = item;
                 return;
             }
+        } else if (first_deleted_index == -1) {
+            first_deleted_index = index;
         }
         // ...
-    } 
-    // ...
+    }
+    const int insert_index = (first_deleted_index != -1) ? first_deleted_index : index;
+    ht->items[insert_index] = item;
+    ht->count++;
 }
 ```
 

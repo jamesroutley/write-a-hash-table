@@ -122,23 +122,32 @@ char* ht_search(ht_hash_table* ht, const char* key) {
 
 Notre table de hachage ne supporte actuellement pas la mise à jour de la valeur d'une clé. Si nous insérons deux éléments avec la même clé, les clés entreront en collision et le deuxième élément sera inséré dans le prochain indice disponible. Lorsque l'on recherchera la clé, la clé d'origine sera toujours trouvée, et nous ne pourrons pas accéder au deuxième élément.
 
-Nous pouvons corriger celà en modifiant `ht_insert` pour faire en sorte de supprimer l'élément précédent et insérer le nouvel élément à son emplacement.
+Nous pouvons corriger cela en modifiant `ht_insert` pour parcourir la chaîne de
+sondage à la recherche d'une clé existante à mettre à jour. Si la clé est trouvée,
+nous la remplaçons et retournons immédiatement. Si la clé n'existe pas, nous l'insérons
+dans le premier emplacement supprimé rencontré (ou le compartiment `NULL` vide si aucun
+emplacement supprimé n'a été vu), évitant ainsi les doublons et les éléments morts.
 
 ```c
 // hash_table.c
 void ht_insert(ht_hash_table* ht, const char* key, const char* value) {
     // ...
+    int first_deleted_index = -1;
     while (cur_item != NULL) {
-        if (cur_item != &HT_DELETED_ITEM) {
+        if (cur_item != &HT_DELETED_ITEM) {
             if (strcmp(cur_item->key, key) == 0) {
                 ht_del_item(cur_item);
                 ht->items[index] = item;
                 return;
             }
+        } else if (first_deleted_index == -1) {
+            first_deleted_index = index;
         }
         // ...
     }
-    // ...
+    const int insert_index = (first_deleted_index != -1) ? first_deleted_index : index;
+    ht->items[insert_index] = item;
+    ht->count++;
 }
 ```
 
