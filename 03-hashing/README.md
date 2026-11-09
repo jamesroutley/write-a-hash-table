@@ -20,9 +20,9 @@ pseudocode.
 function hash(string, a, num_buckets):
     hash = 0
     string_len = length(string)
-    for i = 0, 1, ..., string_len:
+    for i = 0, 1, ..., string_len - 1:
         hash += (a ** (string_len - (i+1))) * char_code(string[i])
-    hash = hash % num_buckets
+        hash = hash % num_buckets
     return hash
 ```
 
@@ -53,7 +53,7 @@ hash = 5
 Changing the value of `a` give us a different hash function.
 
 ```
-hash("cat", 163, 53) = 3
+hash("cat", 163, 53) = 21
 ```
 
 ## Implementation
