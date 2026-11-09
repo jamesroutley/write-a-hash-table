@@ -26,8 +26,12 @@ We see that if no collisions have occurred, `i = 0`, so the index is just
 
 It is possible that `hash_b` will return 0, reducing the second term to 0. This
 will cause the hash table to try to insert the item into the same bucket over
-and over. We can mitigate this by adding 1 to the result of the second hash,
-making sure it's never 0.
+and over. Similarly, if `hash_b + 1` equals `num_buckets`, the second term becomes
+a multiple of `num_buckets`, reducing to 0 modulo `num_buckets` and causing the
+same infinite loop.
+
+We can mitigate this by passing `num_buckets - 1` to `hash_b` and adding 1 to the
+result, making sure the step size is non-zero and always in the range `[1, num_buckets - 1]`.
 
 ```
 index = (hash_a(string) + i * (hash_b(string) + 1)) % num_buckets
@@ -41,7 +45,7 @@ static int ht_get_hash(
     const char* s, const int num_buckets, const int attempt
 ) {
     const int hash_a = ht_hash(s, HT_PRIME_1, num_buckets);
-    const int hash_b = ht_hash(s, HT_PRIME_2, num_buckets);
+    const int hash_b = ht_hash(s, HT_PRIME_2, num_buckets - 1);
     return (hash_a + (attempt * (hash_b + 1))) % num_buckets;
 }
 ```

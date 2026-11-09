@@ -18,7 +18,9 @@ index = hash_a(string) + i * hash_b(string) % num_buckets
 
 Nous voyons que si aucune collision n'a eu lieu, `i = 0`. Alors, l'indice est juste `hash_a` de la chaîne. Si une collision se produit, l'indice est modifié par `hash_b`.
 
-Il est possible que `hash_b` renvoie 0, réduisant le second terme à 0. Ceci rend caduque l'utilisation de `i` car `index` aura la même valeur quelque soit `i`. Nous pouvons résoudre cela en ajoutant 1 au résultat de `hash_b`, et ainsi nous assurer qu'il ne soit jamais nul.
+Il est possible que `hash_b` renvoie 0, réduisant le second terme à 0. Ceci rend caduque l'utilisation de `i` car `index` aura la même valeur quelque soit `i`. De même, si `hash_b + 1` est égal à `num_buckets`, le second terme devient un multiple de `num_buckets`, ce qui se réduit à 0 modulo `num_buckets` et provoque la même boucle infinie.
+
+Nous pouvons résoudre cela en passant `num_buckets - 1` à `hash_b` et en ajoutant 1 au résultat, s'assurant ainsi que le pas n'est jamais nul et reste toujours compris entre 1 et `num_buckets - 1`.
 
 ```
 index = (hash_a(string) + i * (hash_b(string) + 1)) % num_buckets
@@ -32,7 +34,7 @@ static int ht_get_hash(
     const char* s, const int num_buckets, const int attempt
 ) {
     const int hash_a = ht_hash(s, HT_PRIME_1, num_buckets);
-    const int hash_b = ht_hash(s, HT_PRIME_2, num_buckets);
+    const int hash_b = ht_hash(s, HT_PRIME_2, num_buckets - 1);
     return (hash_a + (attempt * (hash_b + 1))) % num_buckets;
 }
 ```
