@@ -80,17 +80,18 @@ void ht_delete(ht_hash_table* ht, const char* key) {
     ht_item* item = ht->items[index];
     int i = 1;
     while (item != NULL) {
-        if (item != &HT_DELETED_ITEM) {
+        if (item != &HT_DELETED_ITEM) {
             if (strcmp(item->key, key) == 0) {
                 ht_del_item(item);
                 ht->items[index] = &HT_DELETED_ITEM;
+                ht->count--;
+                return;
             }
         }
         index = ht_get_hash(key, ht->size, i);
         item = ht->items[index];
         i++;
     } 
-    ht->count--;
 }
 ```
 After deleting, we decrement the hash table's `count` attribute.
