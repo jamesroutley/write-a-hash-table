@@ -88,9 +88,9 @@ void ht_delete(ht_hash_table* ht, const char* key) {
 
 Après la suppression, nous décrémentons l'attribut `count` de la table de hachage.
 
-Nous devons également modifier les fonctions `ht_insert` et `ht_search` pour prendre en compte les nœuds supprimés.
+Nous devons également modifier les fonctions `ht_insert`, `ht_search` et `ht_del_hash_table` pour prendre en compte les nœuds supprimés.
 
-Lors de la recherche, nous ignorons et «sautons» les nœuds supprimés. Lors de l'insertion, si nous atteignons un noeud supprimé, nous pouvons insérer le nouveau nœud dans l'emplacement supprimé.
+Lors de la recherche, nous ignorons et «sautons» les nœuds supprimés. Lors de l'insertion, si nous atteignons un noeud supprimé, nous pouvons insérer le nouveau nœud dans l'emplacement supprimé. Lors de la suppression de la table, nous devons ignorer les sentinelles supprimées pour éviter de libérer de la mémoire statique.
 
 
 ```c
@@ -115,6 +115,18 @@ char* ht_search(ht_hash_table* ht, const char* key) {
         // ...
     }
     // ...
+}
+
+
+void ht_del_hash_table(ht_hash_table* ht) {
+    for (int i = 0; i < ht->size; i++) {
+        ht_item* item = ht->items[i];
+        if (item != NULL && item != &HT_DELETED_ITEM) {
+            ht_del_item(item);
+        }
+    }
+    free(ht->items);
+    free(ht);
 }
 ```
 
